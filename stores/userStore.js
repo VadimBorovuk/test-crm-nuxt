@@ -48,7 +48,6 @@ export const useUserStore = defineStore('user', () => {
     const resOffset = moment().utcOffset() / 60;
     timezone.value.offset = resOffset > 0 ? `+${resOffset}` : `${resOffset}`;
     timezone.value.name = Intl.DateTimeFormat().resolvedOptions().timeZone;
-    console.log('Оновлено timezone:', timezone.value);
   };
 
   const getAccessTz = computed(() => {
