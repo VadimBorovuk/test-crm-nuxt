@@ -1,0 +1,10 @@
+body {
+    font-family: 'Inter', sans-serif;
+    font-size: .9rem;
+    background: #F1F1F9;
+}
+
+thead > tr> th{
+    color: #ffffff!important;
+    font-size: 16px!important;
+}
