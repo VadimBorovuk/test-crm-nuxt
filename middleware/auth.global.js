@@ -18,8 +18,7 @@ export default defineNuxtRouteMiddleware(async (to) => {
 
   try {
     userStore.updateTimezone()
-    await userStore.fetchUserData() // Чекаємо завершення завантаження
-    console.log(userStore.timezone)
+    await userStore.fetchUserData()
     if (!userStore.userData || !userStore.userData.access) {
       throw new Error('User data could not be loaded')
     }
@@ -42,6 +41,11 @@ export default defineNuxtRouteMiddleware(async (to) => {
       // return navigateTo('/projects')
     }
   } catch (error) {
-    return navigateTo('/error')
+    if (process.client) {
+      alert('403 Forbidden')
+      window.location.href =  config.public.CLIENT_APP_PATH
+    }
+    // return abortNavigation()
+    // if (process.client) alert('No access')
   }
 })

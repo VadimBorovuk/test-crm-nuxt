@@ -17,7 +17,6 @@ useHead({
 import { useUserStore } from "~/stores/userStore.js";
 const userStore = useUserStore()
 const {userData} = userStore
-
 </script>
 
 <style lang="scss" scoped>
