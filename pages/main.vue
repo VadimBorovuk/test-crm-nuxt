@@ -1,7 +1,7 @@
 <template>
   <client-only>
     <title-page title="t.settings.main"/>
-    <span>
+    <span>my test
         {{ userData.role }}
         {{userData.user_info.id}}
         {{userData.user_info.name}}
@@ -17,11 +17,11 @@ useHead({
 })
 import { useUserStore } from "~/stores/userStore.js";
 const userStore = useUserStore()
-const {userData} = userStore
+const {userData, timezone, updateTimezone} = userStore
 
-const store = useUserStore();
 onBeforeMount(() => {
-  store.updateTimezone();
+  updateTimezone()
+  console.log(timezone)
 });
 </script>
 
